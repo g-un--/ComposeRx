@@ -14,19 +14,6 @@ namespace Factorials.Tests
         }
 
         [Fact]
-        public void FactorialOf5Returns120()
-        {
-            ulong computedResult = 0;
-
-            _factorial.Get(Scheduler.Immediate)(5).Subscribe(result =>
-            {
-                computedResult = result;
-            });
-
-            Assert.Equal<ulong>(computedResult, 120);
-        }
-
-        [Fact]
         public void FactorialOf1Returns1()
         {
             ulong computedResult = 0;
@@ -37,6 +24,19 @@ namespace Factorials.Tests
             });
 
             Assert.Equal<ulong>(computedResult, 1);
+        }
+
+        [Fact]
+        public void FactorialOf5Returns120()
+        {
+            ulong computedResult = 0;
+
+            _factorial.Get(Scheduler.Immediate)(5).Subscribe(result =>
+            {
+                computedResult = result;
+            });
+
+            Assert.Equal<ulong>(computedResult, 120);
         }
     }
 }
